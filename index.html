@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio E</title>
+    <!-- Favicon profissional -->
+    <link
+      rel="icon"
+      href="https://placehold.co/32x32/1f2937/e5e7eb?text=Dev"
+      type="image/png"
+    />
+    <!-- Inclui Remixicon para os ícones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
+    />
+    <!-- Inclui Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuração do Tailwind e estilos customizados para temas e efeitos -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              // Tema Claro (Hexadecimais diretamente para CSS variables)
+              "primary-light": "#1d4ed8", // Azul forte
+              "secondary-light": "#3b82f6", // Azul claro
+              "background-light": "#f8fafc", // Fundo quase branco
+              "text-light": "#000000", // Texto preto (melhor contraste)
+              "card-light": "#ffffff", // Fundo do card branco
+              "border-light": "#e5e7eb", // Borda sutil clara
+
+              // Tema Escuro (Hexadecimais diretamente para CSS variables)
+              "primary-dark": "#1d4ed8", // Azul forte (mantido para contraste)
+              "secondary-dark": "#1e40af", // Azul um pouco mais escuro
+              "background-dark": "#18181b", // Fundo muito escuro
+              "text-dark": "#e0e0e0", // Texto cinza claro
+              "card-dark": "#27272a", // Fundo do card escuro
+              "border-dark": "#323232", // Borda sutil escura
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            transitionProperty: {
+              colors: "background-color, color, border-color, box-shadow",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;0,600;1,700;1,800;1,900&display=swap");
+
+      /* Definição das variáveis CSS para os temas */
+      :root {
+        --primary-color: #1d4ed8; /* Cor primária para o tema claro */
+        --secondary-color: #3b82f6; /* Cor secundária para o tema claro */
+        --background-color: #f8fafc; /* Cor de fundo para o tema claro */
+        --text-color: #000000; /* Cor do texto para o tema claro (AGORA PRETO) */
+        --card-background: #ffffff; /* Cor de fundo do card para o tema claro */
+        --border-color: #e5e7eb; /* Cor da borda para o tema claro */
+      }
+
+      .dark-mode {
+        --primary-color: #1d4ed8; /* Cor primária para o tema escuro */
+        --secondary-color: #1e40af; /* Cor secundária para o tema escuro */
+        --background-color: #18181b; /* Cor de fundo para o tema escuro */
+        --text-color: #e0e0e0; /* Cor do texto para o tema escuro */
+        --card-background: #27272a; /* Cor de fundo do card para o tema escuro */
+        --border-color: #323232; /* Cor da borda para o tema escuro */
+      }
+
+      /* Estilos globais e para temas */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
+      }
+
+      /* Container padrão para o conteúdo principal */
+      .container-content {
+        max-width: 1200px;
+        margin: auto;
+        padding: 2rem 1rem;
+      }
+
+      /* Estilos para o Hero Section */
+      #hero .content h1 span {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1px currentColor; /* Usa a cor do texto pai para o stroke */
+        /* As classes Tailwind text-primary-light/dark já cuidarão da cor base do span */
+      }
+
+      #hero .image {
+        position: relative;
+      }
+      #hero .image::before {
+        content: "o"; /* O caracter que cria o efeito */
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 30rem; /* Tamanho grande */
+        font-weight: 400;
+        line-height: 20rem;
+        color: var(--primary-color); /* Agora usa a variável CSS */
+        opacity: 0.2; /* Transparência */
+        z-index: -10; /* Fica atrás da imagem */
+      }
+      /* Oculta o pseudo-elemento em telas menores */
+      @media (max-width: 600px) {
+        #hero .image::before {
+          display: none;
+        }
+      }
+
+    /* Estilos de Botão baseados no exemplo */
+    /* Estilos de Botão baseados no exemplo */
+.btn {
+    /* Removido @apply daqui, classes aplicadas diretamente no HTML */
+    
+}
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    color: white; /* Texto sempre branco no botão primário */
+}
+.btn-primary-custom:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary-custom {
+    /* Removido @apply daqui, classes aplicadas diretamente no HTML */
+    background-color: var(--card-background); /* Fundo do card */
+    color: var(--text-color); /* Cor do texto */
+}
+.dark-mode .btn-secondary-custom {
+    /* Estas classes Tailwind ainda funcionam com dark: prefix */
+    @apply bg-gray-700 text-gray-200 hover:bg-gray-600;
+}
+
+      /* Botão "Contrate-me" no cabeçalho: sempre branco */
+      .btn-outline-custom {
+        color: white !important; /* Força branco */
+        border-color: white !important; /* Força borda branca */
+        background-color: transparent !important; /* Garante fundo transparente */
+        @apply border-2;
+      }
+      .btn-outline-custom:hover {
+        background-color: var(
+          --primary-color
+        ) !important; /* Usa a cor primária no hover */
+        color: white !important;
+        border-color: var(--primary-color) !important;
+      }
+
+      /* Estilos dos Cards (Habilidades e Projetos) */
+      .feature-card,
+      .project-card,
+      .skill-category-card {
+        background-color: var(--card-background);
+        color: var(--text-color);
+        border-color: var(--border-color);
+        @apply p-6 rounded-xl shadow-lg border transition-colors duration-500 ease-in-out;
+      }
+      .feature-card:hover,
+      .project-card:hover,
+      .skill-category-card:hover {
+        border-color: var(--primary-color);
+        @apply shadow-xl transform -translate-y-2; /* Efeito de elevação */
+      }
+
+      /* Estilos para os ícones nas listas de habilidades */
+      .skill-category-card ul li i {
+        color: var(--primary-color);
+      }
+
+      .feature-card span i {
+        /* Ícones das habilidades */
+        background-color: var(--primary-color);
+        @apply text-white text-3xl p-2 rounded-md;
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover span i {
+        @apply scale-110;
+      }
+
+      .project-card h3 {
+        /* Títulos dos projetos */
+        color: var(--primary-color);
+      }
+      .project-card a.btn {
+        /* Links nos botões de projetos (GitHub, Ver Projeto) */
+        color: var(--primary-color);
+        /* text-primary-light/dark no HTML já cuida disso */
+        @apply hover:underline;
+      }
+      .project-card .tech-tag {
+        /* Tailwind classes genéricas já funcionam com dark: prefix na HTML */
+        @apply inline-block bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300 text-xs font-semibold px-2.5 py-0.5 rounded-full mr-2 mb-2;
+      }
+
+      /* Estilos para a navegação */
+      .nav-link-custom {
+        color: white !important; /* Força branco nos links de navegação */
+        @apply relative pb-2 transition-colors duration-300;
+      }
+      .nav-link-custom:hover {
+        color: var(--primary-color) !important; /* Cor primária no hover */
+      }
+      .nav-link-custom::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 0;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        @apply transition-all duration-300;
+      }
+      .nav-link-custom:hover::after {
+        width: 70%;
+      }
+
+      /* Estilo para o logo do cabeçalho */
+      .header-logo {
+        height: 40px; /* Altura fixa para o logo no cabeçalho */
+        width: auto;
+        object-fit: contain;
+      }
+      .header-logo:hover {
+        height: 48px; /* Altura fixa para o logo no cabeçalho */
+        width: auto;
+        object-fit: contain;
+      }
+
+      /* Ícone do sol em modo claro - Faded Yellow */
+      .sun-icon {
+        color: #fcd34d; /* Amarelo mais apagado para o modo claro */
+      }
+      .dark-mode .sun-icon {
+        color: currentColor; /* Volta para a cor padrão do texto no modo escuro */
+      }
+
+      /* Ajustes para ícones Remixicon */
+      .ri-xl {
+        font-size: 2.25rem;
+      } /* Ajuste o tamanho dos ícones conforme necessário */
+      .ri-lg {
+        font-size: 1.5rem;
+      }
+
+      /* Estilos para a galeria de projetos */
+      .project-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* FORÇA DUAS COLUNAS */
+        gap: 1rem;
+        margin-top: 1.5rem;
+        transition: all 0.5s ease-in-out;
+        max-height: 0; /* Começa escondido */
+        overflow: hidden;
+        opacity: 0;
+        padding-top: 0;
+      }
+
+      .project-gallery.show {
+        max-height: 500px; /* Altura máxima para animação */
+        opacity: 1;
+        padding-top: 1.5rem;
+      }
+
+      .project-gallery img {
+        width: 100%;
+        height: 100px; /* Altura fixa para miniaturas */
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.3s ease;
+      }
+
+      .project-gallery img:hover {
+        border-color: var(--primary-color);
+      }
+
+      /* Ajuste para telas muito pequenas, se necessário, para garantir uma coluna */
+      @media (max-width: 480px) {
+        .project-gallery {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      /* Estilos para a seção de contribuições ocultável */
+      .contributions-details {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        padding-top: 0; /* Garante que não há padding quando oculto */
+      }
+
+      .contributions-details.show {
+        max-height: 500px; /* Ajuste conforme o conteúdo real para evitar cortes */
+        opacity: 1;
+        padding-top: 1rem; /* Adiciona padding quando visível */
+      }
+
+      /* Estilos para o Lightbox/Modal */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escurecido */
+    backdrop-filter: blur(8px); /* Efeito de desfoque */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Garante que fique acima de tudo */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Para garantir que a imagem não vaze */
+    transition: background-color 0.5s ease;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 70vh; /* Limita a altura da imagem para caber na tela */
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain; /* Garante que a imagem seja contida sem cortar */
+    margin-bottom: 1rem;
+}
+
+.lightbox-description {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0 1rem;
+    max-height: 15vh; /* Limita a altura da descrição */
+    overflow-y: auto; /* Adiciona scroll se a descrição for muito longa */
+}
+
+.lightbox-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.lightbox-close-btn:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos para a notificação de sugestão de tema (AGORA BALÃO DE CONVERSA AZUL) */
+.theme-suggestion-tooltip {
+    position: absolute;
+    background-color: #1d4ed8; /* Fundo azul forte */
+    color: #fff; /* Texto branco */
+    padding: 10px 15px; /* Um pouco mais de padding */
+    border-radius: 16px; /* Bordas mais arredondadas para o balão */
+    font-size: 0.9rem;
+    white-space: nowrap; /* Impede que o texto quebre linha */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px); /* Começa um pouco abaixo */
+    z-index: 100; /* Garante que fique acima de outros elementos */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Sombra mais pronunciada */
+}
+
+.theme-suggestion-tooltip.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Move para a posição final */
+}
+
+/* Seta do balão de conversa apontando para o botão */
+.theme-suggestion-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Posiciona a seta acima do balão */
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg); /* Centraliza e rotaciona a seta */
+    width: 15px; /* Tamanho da seta */
+    height: 15px;
+    background-color: #1d4ed8; /* Cor da seta igual ao balão */
+    border-radius: 4px; /* Levemente arredondada */
+    transform-origin: bottom center; /* Ponto de rotação para a seta */
+    z-index: 99; /* Fica abaixo do balão, mas acima do conteúdo */
+}
+    </style>
+  </head>
+  <body class="transition-colors duration-700 ease-in-out">
+    <!-- Cabeçalho (Header) -->
+    <header
+      class="bg-card-light dark:bg-card-dark shadow-md p-4 sticky top-0 z-50 transition-colors duration-700 ease-in-out"
+    >
+      <nav class="container-content flex justify-between items-center py-2">
+        <div class="nav-logo">
+          <!-- Imagem do logo no cabeçalho -->
+          <a href="#">
+            <img
+              src="imagens/imglogo.png"
+              alt="Logo do Portfólio"
+              class="header-logo"
+            />
+          </a>
+        </div>
+
+        <ul class="nav-links flex items-center gap-6 md:gap-10">
+          <li class="link">
+            <a href="#hero" class="nav-link-custom text-lg">Início</a>
+          </li>
+          <li class="link">
+            <a href="#about" class="nav-link-custom text-lg">Sobre Mim</a>
+          </li>
+          <li class="link">
+            <a href="#skills" class="nav-link-custom text-lg">Habilidades</a>
+          </li>
+          <li class="link">
+            <a href="#projects" class="nav-link-custom text-lg">Projetos</a>
+          </li>
+          <li class="link">
+            <a href="#contact" class="nav-link-custom text-lg">Contato</a>
+          </li>
+          <!-- Botão de alternar tema -->
+          <button
+            id="theme-toggle"
+            class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
+          >
+            <!-- Ícone de sol para modo claro, lua para modo escuro -->
+            <span class="sun-icon">
+              <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-sun"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="M4.93 4.93l1.41 1.41" />
+                <path d="M17.66 17.66l1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="M6.34 17.66l-1.41 1.41" />
+                <path d="M19.07 4.93l-1.41 1.41" />
+              </svg>
+            </span>
+            <span class="moon-icon hidden">
+              <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-moon"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+            </span>
+          </button>
+        </ul>
+        <!-- Botão "Contrate-me" com estilos forçados a branco -->
+        <span class="md:block">ㅤㅤㅤㅤㅤ</span>
+      </nav>
+    </header>
+
+    <!-- Seção Hero -->
+    <section
+      id="hero"
+      class="py-20 md:py-32 text-center container-content flex flex-col md:flex-row items-center justify-center gap-8 min-h-[calc(100vh-100px)]"
+    >
+      <div
+        class="content flex flex-col items-center md:items-start text-center md:text-left md:w-1/2 relative"
+      >
+        <span
+          class="blur absolute top-10 left-1/4 w-80 h-80 bg-primary-light dark:bg-primary-dark rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"
+        ></span>
+        <span
+          class="blur absolute bottom-10 right-1/4 w-80 h-80 bg-secondary-light dark:bg-secondary-dark rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
+        ></span>
+
+        <h4 class="mb-4 text-lg font-semibold text-gray-500 dark:text-gray-400">
+          CRIE SEU SITE COM QUALIDADE!
+        </h4>
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight"
+        >
+          Oi, eu sou <span>Emanuel</span>,<br />
+          <span class="text-primary-light dark:text-primary-dark"
+            >Web Developer</span
+          >
+        </h1>
+        <p
+          class="mb-8 text-lg md:text-xl text-text-light dark:text-text-dark max-w-2xl"
+        >
+          Desenvolvedor <span class="font-bold">Fullstack Júnior</span> com foco
+          em transformar ideias em soluções digitais inovadoras e eficientes.
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+    <!-- Adicionadas as classes Tailwind diretamente aqui para padding, arredondamento e centralização -->
+    <a href="#projects" class="btn btn-primary-custom px-6 py-4 rounded-full inline-flex items-center justify-center">Ver Projetos</a>
+    <a href="#contact" class="btn btn-secondary-custom px-6 py-4 rounded-full inline-flex items-center justify-center">Entrar em Contato</a>
+</div>
+      </div>
+      <div
+        class="image md:w-1/2 flex justify-center items-center mt-10 md:mt-0 relative"
+      >
+        <img
+          src="imagens/beTravod.png"
+          alt="Sua Foto de Perfil"
+          class="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto rounded-xl transition-all duration-500 ease-in-out"
+        />
+      </div>
+    </section>
+
+    <!-- Seção Sobre Mim -->
+    <section id="about" class="py-16 md:py-24 container-content">
+      <h2
+        class="text-4xl md:text-5xl font-bold text-center mb-12 text-primary-light dark:text-primary-dark"
+      >
+        Sobre Mim
+      </h2>
+      <div class="feature-card max-w-4xl mx-auto p-8">
+        <p class="mb-5 text-xl leading-relaxed">
+          Olá! Sou um
+          <span class="font-extrabold text-primary-light dark:text-primary-dark"
+            >Desenvolvedor Júnior</span
+          >
+          com
+          <span class="font-extrabold text-primary-light dark:text-primary-dark"
+            >2 a 3 anos de experiência</span
+          >, apaixonado por criar soluções de software que realmente fazem a
+          diferença. Minha jornada no mundo da tecnologia começou na
+          <span class="font-extrabold text-primary-light dark:text-primary-dark"
+            >UNIFEB de Barretos</span
+          >, onde curso Sistemas de Informação e me aprofundo em conceitos e
+          práticas de desenvolvimento.
+        </p>
+        <p class="mb-5 text-xl leading-relaxed">
+          Minhas principais ferramentas de trabalho são
+          <span class="font-extrabold text-primary-light dark:text-primary-dark"
+            >Python</span
+          >, com foco no framework <span class="font-semibold">Django</span>, e
+          <span class="font-extrabold text-primary-light dark:text-primary-dark"
+            >JavaScript</span
+          >, incluindo <span class="font-semibold">Node.js, HTML e CSS</span>.
+          Também possuo uma base sólida em
+          <span class="font-semibold">C#</span> e domino os princípios da
+          <span class="font-extrabold text-primary-light dark:text-primary-dark"
+            >Programação Orientada a Objetos (POO)</span
+          >, que aplico para desenvolver código limpo, modular e escalável.
+        </p>
+        <p class="text-xl leading-relaxed">
+          Acredito na força do trabalho em equipe, sou proativo na busca por
+          soluções e adoro um bom desafio técnico. Meu objetivo é contribuir com
+          projetos inovadores, continuar aprendendo e evoluindo constantemente
+          como profissional.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seção Habilidades -->
+    <section
+      id="skills"
+      class="py-16 md:py-24 container-content bg-gray-50 dark:bg-gray-800 rounded-2xl my-10 shadow-inner"
+    >
+      <h2
+        class="text-4xl md:text-5xl font-bold text-center mb-12 text-primary-light dark:text-primary-dark"
+      >
+        Minhas Habilidades
+      </h2>
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Categoria 1: Linguagens de Programação -->
+        <div class="skill-category-card p-8">
+          <h3
+            class="text-2xl font-bold mb-6 text-primary-light dark:text-primary-dark"
+          >
+            Linguagens de Programação & Markup/Estilo para Web
+          </h3>
+          <ul class="list-none space-y-4">
+            <li class="flex items-center text-xl">
+                
+              <i
+                class="ri-file-code-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              Python
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-javascript-fill ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              JavaScript
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-code-s-slash-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              C#
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-html5-fill ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              HTML5
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-css3-fill ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              CSS3
+            </li>
+          </ul>
+        </div>
+
+        <!-- Categoria 2: Frameworks & Bibliotecas -->
+        <div class="skill-category-card p-8">
+          <h3
+            class="text-2xl font-bold mb-6 text-primary-light dark:text-primary-dark"
+          >
+            Frameworks & Bibliotecas
+          </h3>
+          <ul class="list-none space-y-4">
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-braces-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              Django & Django REST Framework
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-node-tree ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              Node.js
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-tailwind-css-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              Tailwind CSS
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-window-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              Tkinter
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-tools-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              yt-dlp
+            </li>
+          </ul>
+        </div>
+
+        <!-- Categoria 3: Bancos de Dados & Conceitos -->
+        <div class="skill-category-card p-8">
+          <h3
+            class="text-2xl font-bold mb-6 text-primary-light dark:text-primary-dark"
+          >
+            Bancos de Dados & Conceitos
+          </h3>
+          <ul class="list-none space-y-4">
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-database-2-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              MySQL
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-box-3-fill ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              POO (Programação Orientada a Objetos)
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-command-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              RESTful APIs
+            </li>
+          </ul>
+        </div>
+
+        <!-- Categoria 4: Ferramentas & Práticas -->
+        <div class="skill-category-card p-8">
+          <h3
+            class="text-2xl font-bold mb-6 text-primary-light dark:text-primary-dark"
+          >
+            Ferramentas & Práticas
+          </h3>
+          <ul class="list-none space-y-4">
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-git-branch-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              Git & GitHub
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-cloud-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              Deploy (PythonAnywhere, Render)
+            </li>
+            <li class="flex items-center text-xl">
+              <i
+                class="ri-search-line ri-lg mr-3 text-primary-light dark:text-primary-dark"
+              ></i>
+              Web Scraping
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Projetos -->
+    <section id="projects" class="py-16 md:py-24 container-content">
+      <h2
+        class="text-4xl md:text-5xl font-bold text-center mb-12 text-primary-light dark:text-primary-dark"
+      >
+        Meus Projetos
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        <!-- Projeto 1: E-commerce PI UNIFEB -->
+        <div class="project-card flex flex-col items-center text-center p-8">
+          <img src="imagens/tela inicial.jpeg"
+     alt="Imagem Principal do Projeto E-commerce"
+     class="rounded-lg mb-6 w-full object-cover border border-border-light dark:border-border-dark clickable-image"
+     data-full-src="imagens/tela inicial.jpeg"
+     data-description="Tela principal da loja de e-commerce, mostrando o catálogo de produtos.">
+          <h3
+            class="text-3xl font-extrabold mb-3 text-primary-light dark:text-primary-dark"
+          >
+            E-commerce (Projeto Integrador UNIFEB)
+          </h3>
+          <p class="text-lg mb-6 leading-relaxed">
+            Fui o <span class="font-bold">principal desenvolvedor</span> neste
+            projeto acadêmico de uma plataforma de e-commerce completa, focada
+            em um catálogo digital interativo.
+          </p>
+          <!-- Seção de Contribuições Ocultável -->
+          <div
+            id="ecommerce-contributions"
+            class="contributions-details text-left w-full"
+          >
+            <h4
+              class="font-bold text-xl mb-3 text-text-light dark:text-text-dark"
+            >
+              Minhas Contribuições:
+            </h4>
+            <ul class="list-disc list-inside text-lg space-y-2">
+              <li>
+                <span class="font-semibold"
+                  >Backend com Django REST Framework (Python):</span
+                >
+                Desenvolvimento de APIs para CRUD de produtos, categorias,
+                carrinho, autenticação de usuários e sistema de avaliação.
+              </li>
+              <li>
+                <span class="font-semibold"
+                  >Frontend com JavaScript (Node.js):</span
+                >
+                Criação da interface responsiva e interativa, consumo das APIs e
+                manipulação de dados para exibição e interação do usuário.
+              </li>
+              <li>
+                <span class="font-semibold"
+                  >Conceitos de POO e Git/GitHub:</span
+                >
+                Aplicação de princípios de Programação Orientada a Objetos e
+                gestão de código em equipe.
+              </li>
+              <li>
+                <span class="font-semibold">Deploy e Banco de Dados:</span>
+                Configuração e deploy em PythonAnywhere (backend) e Render
+                (frontend), utilizando MySQL.
+              </li>
+            </ul>
+          </div>
+          <!-- Botão para alternar a visibilidade das Contribuições -->
+          <button
+            class="btn btn-secondary-custom flex items-center justify-center w-full mb-4 toggle-contributions"
+            data-target="ecommerce-contributions"
+          >
+            Ver Mais <i class="ri-arrow-right-s-line ri-lg ml-2"></i>
+          </button>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django REST Framework</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">Git</span>
+          </div>
+          <!-- Botão para ver mais telas -->
+          <button
+            class="btn btn-secondary-custom flex items-center justify-center w-full mb-4 toggle-gallery"
+            data-target="ecommerce-gallery"
+          >
+            Ver Telas <i class="ri-arrow-right-s-line ri-lg ml-2"></i>
+          </button>
+          <!-- Galeria de miniaturas (inicialmente oculta) -->
+          <div id="ecommerce-gallery" class="project-gallery">
+            <img
+              src="imagens/modo escuro.jpeg"
+              alt="Captura de Tela 1 do E-commerce"
+              class="clickable-image"
+     data-full-src="imagens/modo escuro.jpeg"
+     data-description="Página inicial no modo escuro"
+            />
+            <img
+              src="imagens/tela produto.jpeg"
+              alt="Captura de Tela 2 do E-commerce"
+              class="clickable-image"
+     data-full-src="imagens/tela produto.jpeg"
+     data-description="Página do Produto Martelo"
+            />
+            <img
+              src="imagens/WhatsApp Image 2025-06-13 at 11.12.15.jpeg"
+              alt="Captura de Tela 4 do E-commerce"
+              class="clickable-image"
+     data-full-src="imagens/WhatsApp Image 2025-06-13 at 11.12.15.jpeg"
+     data-description="Página De Favoritos"
+            />
+            <img
+              src="imagens/WhatsApp Image 2025-06-13 at 11.10.51.jpeg"
+              alt="Captura de Tela 4 do E-commerce"
+              class="clickable-image"
+     data-full-src="imagens/WhatsApp Image 2025-06-13 at 11.10.51.jpeg"
+     data-description="Página de Carrinho de Compra"
+            />
+            
+            
+            <img
+              src="imagens/WhatsApp Image 2025-06-13 at 11.14.03.jpeg"
+              alt="Captura de Tela 4 do E-commerce"
+              class="clickable-image"
+     data-full-src="imagens/WhatsApp Image 2025-06-13 at 11.14.03.jpeg"
+     data-description="Navegação Para Login e Cadastro de Produto (caso esteja logado como admin)"
+            />
+            <img
+              src="imagens/WhatsApp Image 2025-06-13 at 11.14.50.jpeg"
+              alt="Captura de Tela 4 do E-commerce"
+              class="clickable-image"
+     data-full-src="imagens/WhatsApp Image 2025-06-13 at 11.14.50.jpeg"
+     data-description="Página de login e Cadastro"
+            />
+            <img
+              src="imagens/WhatsApp Image 2025-06-13 at 11.18.48.jpeg"
+              alt="Captura de Tela 4 do E-commerce"
+              class="clickable-image"
+     data-full-src="imagens/WhatsApp Image 2025-06-13 at 11.18.48.jpeg"
+     data-description="Tela Para Ver Todos os Produtos e Exclur e Atualizar Algum Produto. (apenas o admin tem acesso a essa tela)"
+            />
+            <img
+              src="imagens/WhatsApp Image 2025-06-13 at 11.15.22.jpeg"
+              alt="Captura de Tela 4 do E-commerce"
+              class="clickable-image"
+     data-full-src="imagens/WhatsApp Image 2025-06-13 at 11.15.22.jpeg"
+     data-description="Tela De Cadastro De Produto. (apenas o admin tem acesso a essa tela)"
+            />
+            
+          </div>
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6 w-full justify-center"
+          >
+            <a
+              href="https://github.com/[SeuUserGitHub]/[NomeDoRepoEcommerce]"
+              target="_blank"
+              class="btn btn-secondary-custom flex items-center justify-center"
+            >
+              <i class="ri-github-fill ri-lg mr-2"></i> GitHub
+            </a>
+            <a
+              href="https://steam-codex-pi-2025-01.onrender.com"
+              target="_blank" 
+              title="O site Pode demorar um Pouco Para Carregar Por estar em Desenvolvimento"
+              class="btn flex items-center justify-center"
+            >
+              <i class="ri-external-link-line ri-lg mr-2"></i> Ver Projeto
+            </a>
+          </div>
+        </div>
+
+        <!-- Projeto 2: MediaFlow -->
+        <div class="project-card flex flex-col items-center text-center p-8">
+          <img src="imagens/mflow1.PNG"
+     alt="Imagem Principal do Projeto E-commerce"
+     class="rounded-lg mb-6 w-full object-cover border border-border-light dark:border-border-dark clickable-image"
+     data-full-src="imagens/mflow1.PNG"
+     data-description="Tela principal MediaFlow, Aqui você Realiza a Pesquisa Do Seu Video.">
+          <h3
+            class="text-3xl font-extrabold mb-3 text-primary-light dark:text-primary-dark"
+          >
+            MediaFlow (Pessoal)
+          </h3>
+          <p class="text-lg mb-6 leading-relaxed">
+            Um projeto pessoal criado para resolver um problema cotidiano:
+            baixar vídeos e músicas do YouTube de forma rápida e sem
+            interrupções.
+          </p>
+          <!-- Seção de Contribuições Ocultável -->
+          <div
+            id="mediaflow-contributions"
+            class="contributions-details text-left w-full"
+          >
+            <h4
+              class="font-bold text-xl mb-3 text-text-light dark:text-text-dark"
+            >
+              Minhas Contribuições:
+            </h4>
+            <ul class="list-disc list-inside text-lg space-y-2">
+              <li>
+                <span class="font-semibold">Interface Web Interativa:</span>
+                Desenvolvida com HTML,
+                <span class="font-semibold">Tailwind CSS</span> e
+                <span class="font-semibold">JavaScript</span>, priorizando a
+                usabilidade e o design.
+              </li>
+              <li>
+                <span class="font-semibold">Backend com Django e yt-dlp:</span>
+                Integração eficiente com Python e a biblioteca `yt-dlp` para o
+                processamento de downloads de mídia.
+              </li>
+              <li>
+                <span class="font-semibold">Versão Desktop com Tkinter:</span>
+                Criação de uma aplicação desktop utilizando
+                <span class="font-semibold">Tkinter</span> para uma experiência
+                de download ainda mais rápida.
+              </li>
+              <li>
+                <span class="font-semibold"
+                  >Ciclo Completo de Desenvolvimento:</span
+                >
+                Responsável por todas as etapas, desde a idealização do design
+                (inspirado no Canva) até a implementação e otimização.
+              </li>
+            </ul>
+          </div>
+          <!-- Botão para alternar a visibilidade das Contribuições -->
+          <button
+            class="btn btn-secondary-custom flex items-center justify-center w-full mb-4 toggle-contributions"
+            data-target="mediaflow-contributions"
+          >
+            Ver Mais <i class="ri-arrow-right-s-line ri-lg ml-2"></i>
+          </button>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django</span>
+            <span class="tech-tag">yt-dlp</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">Tkinter</span>
+          </div>
+          <!-- Botão para ver mais telas -->
+          <button
+            class="btn btn-secondary-custom flex items-center justify-center w-full mb-4 toggle-gallery"
+            data-target="mediaflow-gallery"
+          >
+            Ver Telas <i class="ri-arrow-right-s-line ri-lg ml-2"></i>
+          </button>
+          <!-- Galeria de miniaturas (inicialmente oculta) -->
+          <div id="mediaflow-gallery" class="project-gallery">
+            <img src="imagens/mflowvideo.PNG"
+     alt="Captura de Tela 1 do E-commerce"
+     class="clickable-image"
+     data-full-src="imagens/mflowvideo.PNG"
+     data-description="Com o Video Pesquisado, Ele Ira Mostrar As Opções De Resoluções Disponivel Para Aquele Video e Opçoes a Mais de Extensão e Formato">
+            <img src="imagens/mflowprogress.PNG"
+     alt="Captura de Tela 1 do E-commerce"
+     class="clickable-image"
+     data-full-src="imagens/mflowprogress.PNG"
+     data-description="Progresso de download">
+            
+          </div>
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6 w-full justify-center"
+          >
+            <a
+              href="https://github.com/[SeuUserGitHub]/MediaFlow"
+              target="_blank"
+              class="btn btn-secondary-custom flex items-center justify-center"
+            >
+              <i class="ri-github-fill ri-lg mr-2"></i> GitHub
+            </a>
+            <a
+              href="https://[LinkDoDeployMediaFlow].com"
+              target="_blank"
+              class="btn flex items-center justify-center"
+            >
+              <i class="ri-external-link-line ri-lg mr-2"></i> Ver Projeto
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section
+      id="contact"
+      class="py-16 md:py-24 container-content bg-gray-50 dark:bg-gray-800 rounded-2xl my-10 text-center shadow-inner"
+    >
+      <h2
+        class="text-4xl md:text-5xl font-bold text-center mb-12 text-primary-light dark:text-primary-dark"
+      >
+        Entre em Contato
+      </h2>
+      <p class="text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
+        Estou sempre em busca de novas oportunidades e colaborações. Se você tem
+        um projeto em mente, uma vaga interessante ou apenas quer trocar ideias,
+        sinta-se à vontade para me contatar.
+      </p>
+      <div
+        class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-10"
+      >
+        <a
+          href="mailto:roqueemanuel2018@gmail.com"
+          class="flex items-center text-xl nav-link-custom hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300"
+        >
+          <i class="ri-mail-line ri-xl mr-3"></i> roqueemanuel2018@gmail.com
+        </a>
+        <a
+          href="https://www.linkedin.com/in/emanuel-barbosa-de-amaral-roque-690813323/"
+          target="_blank"
+          class="flex items-center text-xl nav-link-custom hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300"
+        >
+          <i class="ri-linkedin-fill ri-xl mr-3"></i> LinkedIn
+        </a>
+        <a
+          href="https://github.com/emanuel-git-bot"
+          target="_blank"
+          class="flex items-center text-xl nav-link-custom hover:text-primary-light dark:hover:text-primary-dark transition-colors duration-300"
+        >
+          <i class="ri-github-fill ri-xl mr-3"></i> GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- Estrutura do Lightbox/Modal (Adicione antes do fechamento da tag </body>) -->
+<div id="lightbox" class="lightbox-overlay">
+    <div class="lightbox-content">
+        <button class="lightbox-close-btn">&times;</button> <!-- Botão de fechar -->
+        <img id="lightbox-img" src="" alt="Imagem do Projeto Ampliada">
+        <p id="lightbox-description" class="lightbox-description"></p>
+    </div>
+</div>
+
+    <!-- Rodapé -->
+    <footer
+      class="bg-card-light dark:bg-card-dark text-center p-8 text-sm text-text-light dark:text-text-dark shadow-inner transition-colors duration-700 ease-in-out"
+    >
+      <p class="text-lg">
+        &copy; 2025 <span class="font-semibold">Emanuel</span>. Todos os
+        direitos reservados.
+      </p>
+      <p class="text-md mt-2">Feito com ❤️ e muito código.</p>
+    </footer>
+
+    <script>
+      // JavaScript para o tema claro/escuro e rolagem suave
+      const themeToggle = document.getElementById("theme-toggle");
+      const sunIcon = document.querySelector(".sun-icon");
+      const moonIcon = document.querySelector(".moon-icon");
+      const htmlElement = document.documentElement; // Usar htmlElement para aplicar a classe dark-mode
+
+      // Função para carregar o tema preferido do usuário
+      function loadTheme() {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          htmlElement.classList.add("dark-mode");
+          sunIcon.classList.add("hidden");
+          moonIcon.classList.remove("hidden");
+        } else {
+          htmlElement.classList.remove("dark-mode");
+          sunIcon.classList.remove("hidden");
+          moonIcon.classList.add("hidden");
+        }
+      }
+
+      // Função para alternar o tema
+      themeToggle.addEventListener("click", () => {
+        if (htmlElement.classList.contains("dark-mode")) {
+          htmlElement.classList.remove("dark-mode");
+          localStorage.setItem("theme", "light");
+          sunIcon.classList.remove("hidden");
+          moonIcon.classList.add("hidden");
+        } else {
+          htmlElement.classList.add("dark-mode");
+          localStorage.setItem("theme", "dark");
+          sunIcon.classList.add("hidden");
+          moonIcon.classList.remove("hidden");
+        }
+      });
+
+      // Carregar o tema ao carregar a página
+      loadTheme();
+
+      // Rolagem suave para os links de navegação
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Lógica para mostrar/esconder a galeria de projetos
+      document.querySelectorAll(".toggle-gallery").forEach((button) => {
+        button.addEventListener("click", function () {
+          const galleryId = this.dataset.target;
+          const gallery = document.getElementById(galleryId);
+          const icon = this.querySelector("i");
+
+          gallery.classList.toggle("show");
+
+          if (gallery.classList.contains("show")) {
+            icon.classList.remove("ri-arrow-right-s-line");
+            icon.classList.add("ri-arrow-down-s-line");
+            this.textContent = "Esconder Telas ";
+            this.appendChild(icon); // Adiciona o ícone de volta após mudar o texto
+          } else {
+            icon.classList.remove("ri-arrow-down-s-line");
+            icon.classList.add("ri-arrow-right-s-line");
+            this.textContent = "Ver Telas ";
+            this.appendChild(icon); // Adiciona o ícone de volta após mudar o texto
+          }
+        });
+      });
+
+      // Lógica para mostrar/esconder as contribuições
+      document.querySelectorAll(".toggle-contributions").forEach((button) => {
+        button.addEventListener("click", function () {
+          const contributionsId = this.dataset.target;
+          const contributions = document.getElementById(contributionsId);
+          const icon = this.querySelector("i");
+
+          contributions.classList.toggle("show");
+
+          if (contributions.classList.contains("show")) {
+            icon.classList.remove("ri-arrow-right-s-line");
+            icon.classList.add("ri-arrow-down-s-line");
+            this.textContent = "Esconder Contribuições ";
+            this.appendChild(icon); // Adiciona o ícone de volta após mudar o texto
+          } else {
+            icon.classList.remove("ri-arrow-down-s-line");
+            icon.classList.add("ri-arrow-right-s-line");
+            this.textContent = "Ver Contribuições ";
+            this.appendChild(icon); // Adiciona o ícone de volta após mudar o texto
+          }
+        });
+      });
+    </script>
+    <script>
+        // Lógica para o Lightbox/Modal
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxDescription = document.getElementById('lightbox-description');
+const lightboxCloseBtn = document.querySelector('.lightbox-close-btn');
+
+// Função para abrir o lightbox
+function openLightbox(imageUrl, description) {
+    lightboxImg.src = imageUrl;
+    lightboxDescription.textContent = description;
+    lightbox.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Evita rolagem do corpo quando o modal está aberto
+}
+
+// Função para fechar o lightbox
+function closeLightbox() {
+    lightbox.classList.remove('show');
+    document.body.style.overflow = ''; // Restaura a rolagem do corpo
+    lightboxImg.src = ''; // Limpa a imagem
+    lightboxDescription.textContent = ''; // Limpa a descrição
+}
+
+// Adiciona event listeners para todas as imagens clicáveis
+document.querySelectorAll('.clickable-image').forEach(image => {
+    image.addEventListener('click', () => {
+        const fullSrc = image.dataset.fullSrc || image.src; // Usa data-full-src ou o src original
+        const description = image.dataset.description || '';
+        openLightbox(fullSrc, description);
+    });
+});
+
+// Adiciona event listener para o botão de fechar
+lightboxCloseBtn.addEventListener('click', closeLightbox);
+
+// Adiciona event listener para fechar clicando fora da imagem (no overlay)
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) { // Verifica se o clique foi no overlay, não na imagem dentro
+        closeLightbox();
+    }
+});
+
+// Adiciona event listener para fechar com a tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+        closeLightbox();
+    }
+});
+    </script>
+<script>
+    // Lógica para mostrar a sugestão de tema no modo claro
+function showThemeSuggestion() {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light'; // Padrão é 'light'
+
+    if (currentTheme === 'light') {
+        // Cria o elemento da tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'theme-suggestion-tooltip';
+        tooltip.textContent = 'Para melhor experiência, utilize nosso modo escuro.';
+
+        // Posiciona a tooltip abaixo do botão de toggle
+        const rect = themeToggleBtn.getBoundingClientRect();
+        // Ajuste o top para que a seta do balão aponte para o botão
+        // A seta tem 15px de altura, então o balão deve começar um pouco mais abaixo
+        tooltip.style.top = `${rect.bottom + 15}px`; // 15px abaixo do botão (altura da seta)
+        tooltip.style.left = `${rect.left + (rect.width / 2)}px`;
+        tooltip.style.transform = 'translateX(-50%) translateY(10px)'; // Centraliza e ajusta para animação
+
+        document.body.appendChild(tooltip);
+
+        // Força o reflow para a transição funcionar
+        tooltip.offsetWidth;
+
+        // Adiciona a classe 'show' para exibir a tooltip com animação
+        tooltip.classList.add('show');
+
+        // Remove a tooltip após 5 segundos
+        setTimeout(() => {
+            tooltip.classList.remove('show');
+            // Remove o elemento do DOM após a transição de saída
+            tooltip.addEventListener('transitionend', () => {
+                tooltip.remove();
+            }, { once: true }); // Garante que o listener seja removido após uma execução
+        }, 5000); // 5 segundos
+    }
+}
+
+// Chama a função para mostrar a sugestão de tema após a página carregar completamente
+window.addEventListener('load', showThemeSuggestion);
+
+// Opcional: Se o usuário mudar para o modo claro *depois* de ter estado no escuro,
+// e você quiser que a mensagem apareça novamente, você pode chamar showThemeSuggestion()
+// dentro do `else` do seu `themeToggle.addEventListener('click')`.
+// Exemplo:
+/*
+themeToggle.addEventListener('click', () => {
+    if (htmlElement.classList.contains('dark-mode')) {
+        // ... (seu código existente para mudar para dark mode) ...
+    } else {
+        // ... (seu código existente para mudar para light mode) ...
+        showThemeSuggestion(); // Chama a sugestão se voltar para o modo claro
+    }
+});
+*/
+</script>
+  </body>
+</html>
